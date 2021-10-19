@@ -56,10 +56,12 @@ namespace PoS
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 8 && dataGridView1.Rows.Count > 0)
-            {
-                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);
+            if ((e.KeyChar == 'b' || e.KeyChar=='B') && dataGridView1.Rows.Count > 0)
+            {               
+                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);           
                 CalcularTotal();
+                textBox1.Clear();
+                textBox1.Focus();
             }
             if (e.KeyChar == 13)
             {
@@ -116,7 +118,7 @@ namespace PoS
                     MessageBox.Show(ex.ToString());
                 }
             }
-            if (e.KeyChar == 'P' || e.KeyChar == 'p')
+            if ((e.KeyChar == 'P' || e.KeyChar == 'p') && !String.IsNullOrEmpty(textBox1.Text))
             {
                 e.Handled = true;
                 //MessageBox.Show($"¿Va a pagar? {textBox1.Text} {total} {Environment.NewLine} " +
@@ -128,6 +130,7 @@ namespace PoS
                 textBox1.Focus();
 
             }
+      
             // Abrir nuevo winform vacio
             if (e.KeyChar == 'N' || e.KeyChar == 'n')
             {
@@ -152,16 +155,9 @@ namespace PoS
             label4.Text = "Total: " + String.Format("{0:0.00}",total);
         }
 
-        private void label4_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
-
-		private void textBox1_KeyDown(object sender, KeyEventArgs e)
-		{
-
-
-    
-        }
-	}
+    }
 }

@@ -57,9 +57,9 @@ namespace PoS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Times New Roman", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(196, 39);
+            this.label1.Location = new System.Drawing.Point(224, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(414, 38);
+            this.label1.Size = new System.Drawing.Size(508, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido a Super del Sur";
             // 
@@ -67,9 +67,9 @@ namespace PoS
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(296, 403);
+            this.label3.Location = new System.Drawing.Point(338, 537);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(170, 37);
+            this.label3.Size = new System.Drawing.Size(214, 46);
             this.label3.TabIndex = 2;
             this.label3.Text = "Hora y Fecha";
             // 
@@ -100,7 +100,8 @@ namespace PoS
             this.Column2,
             this.Column3,
             this.Column4});
-            this.dataGridView1.Location = new System.Drawing.Point(272, 153);
+            this.dataGridView1.Location = new System.Drawing.Point(311, 204);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
@@ -109,7 +110,7 @@ namespace PoS
             dataGridViewCellStyle3.NullValue = null;
             this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView1.RowTemplate.Height = 60;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(274, 200);
             this.dataGridView1.TabIndex = 3;
             // 
             // Column1
@@ -145,30 +146,30 @@ namespace PoS
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox1.Location = new System.Drawing.Point(576, 153);
+            this.textBox1.Location = new System.Drawing.Point(658, 204);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 46);
+            this.textBox1.Size = new System.Drawing.Size(114, 56);
             this.textBox1.TabIndex = 4;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox1_KeyDown);
             this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(12, 11);
+            this.label4.Location = new System.Drawing.Point(14, 15);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 50);
+            this.label4.Size = new System.Drawing.Size(126, 62);
             this.label4.TabIndex = 5;
             this.label4.Text = "Total";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(616, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(704, 0);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(197, 137);
+            this.pictureBox1.Size = new System.Drawing.Size(225, 183);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 6;
             this.pictureBox1.TabStop = false;
@@ -176,9 +177,10 @@ namespace PoS
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(14, 0);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(197, 137);
+            this.pictureBox2.Size = new System.Drawing.Size(225, 183);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 7;
             this.pictureBox2.TabStop = false;
@@ -188,17 +190,18 @@ namespace PoS
             this.panel1.BackColor = System.Drawing.Color.Cornsilk;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1.Controls.Add(this.label4);
-            this.panel1.Location = new System.Drawing.Point(773, 170);
+            this.panel1.Location = new System.Drawing.Point(883, 227);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(288, 405);
+            this.panel1.Size = new System.Drawing.Size(329, 539);
             this.panel1.TabIndex = 9;
             // 
             // PuntoDeVenta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Lime;
-            this.ClientSize = new System.Drawing.Size(1073, 587);
+            this.ClientSize = new System.Drawing.Size(1226, 783);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
@@ -207,6 +210,7 @@ namespace PoS
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "PuntoDeVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PuntoDeVenta";
