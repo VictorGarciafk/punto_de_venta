@@ -45,8 +45,12 @@ namespace PoS
             textBox1.Location = new Point(20, dataGridView1.Height + textBox1.Height + this.Height / 6);
             textBox1.Width = dataGridView1.Width;
             label4.Location = new Point(20,20);
+            label2.Location = new Point(20, label4.Location.Y + label4.Height + 20);
+            label5.Location = new Point(20, label2.Location.Y + label5.Height + 20);
             dataGridView1.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             dataGridView1.Columns[3].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
+            label2.Visible = false;
+            label5.Visible = false;
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -56,13 +60,28 @@ namespace PoS
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar == 'b' || e.KeyChar=='B') && dataGridView1.Rows.Count > 0)
-            {               
-                dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);           
+            label2.Visible = false;
+            label5.Visible = false;
+            if (e.KeyChar == 98 && dataGridView1.Rows.Count > 0)
+            {
+                int i = dataGridView1.CurrentRow.Index;
+                if (Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()) > 1)
+                {
+                    dataGridView1.CurrentRow.Cells[0].Value = Convert.ToInt32(dataGridView1.CurrentRow.Cells[0].Value.ToString()) - 1;
+                }
+                else
+                {
+                    dataGridView1.Rows.RemoveAt(dataGridView1.Rows.Count - 1);
+                }
+
                 CalcularTotal();
-                textBox1.Clear();
-                textBox1.Focus();
             }
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+
             if (e.KeyChar == 13)
             {
                 String query = "SELECT * FROM productos WHERE producto_codigo =" + textBox1.Text;
@@ -124,13 +143,14 @@ namespace PoS
                 //MessageBox.Show($"¿Va a pagar? {textBox1.Text} {total} {Environment.NewLine} " +
                 //    $"{Convert.ToDouble(textBox1.Text) - total}");
 
-                label4.Text = $"Cambio: {Math.Round(Convert.ToDouble(textBox1.Text) - total, 2)}";
+                label2.Text = $"pago: " + Convert.ToDouble(textBox1.Text);
+                label5.Text = $"Cambio: {Math.Round(Convert.ToDouble(textBox1.Text) - total, 2)}";
                 dataGridView1.Rows.Clear();
                 textBox1.Clear();
                 textBox1.Focus();
-
+                label2.Visible = true;
+                label5.Visible = true;
             }
-      
             // Abrir nuevo winform vacio
             if (e.KeyChar == 'N' || e.KeyChar == 'n')
             {
@@ -153,6 +173,7 @@ namespace PoS
                 total += Double.Parse(dataGridView1[3,i].Value.ToString());
             }
             label4.Text = "Total: " + String.Format("{0:0.00}",total);
+
         }
 
         private void label2_Click(object sender, EventArgs e)
