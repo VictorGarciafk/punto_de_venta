@@ -25,13 +25,13 @@ namespace PoS
             pictureBox1.Height = this.Height / 6;
             pictureBox2.Width = 250;
             pictureBox2.Height = this.Height / 6;
-            pictureBox1.Location = new Point(this.Width - pictureBox1.Width - 10 , 10);
+            pictureBox1.Location = new Point(this.Width - pictureBox1.Width - 10, 10);
             panel1.Location = new Point(40 + (this.Width / 6) * 4, (this.Height / 6) + 20);
             panel1.Height = (this.Height / 6) * 4;
             panel1.Width = (this.Width / 8) * 2 - 10;
 
             label1.Location = new Point(this.Width / 2 - label1.Width / 2, 0);
-            pictureBox2.Location = new Point(10,10);
+            pictureBox2.Location = new Point(10, 10);
             label3.Text = DateTime.Now.ToLongTimeString() + " " + DateTime.Now.ToLongDateString();
             label3.Location = new Point(this.Width / 2 - label3.Width / 2, label1.Height + label1.Height);
             dataGridView1.Location = new Point(20, (this.Height / 6) + 20);
@@ -44,7 +44,7 @@ namespace PoS
             dataGridView1.RowTemplate.Height = 60;
             textBox1.Location = new Point(20, dataGridView1.Height + textBox1.Height + this.Height / 6);
             textBox1.Width = dataGridView1.Width;
-            label4.Location = new Point(20,20);
+            label4.Location = new Point(20, 20);
             label2.Location = new Point(20, label4.Location.Y + label4.Height + 20);
             label5.Location = new Point(20, label2.Location.Y + label5.Height + 20);
             dataGridView1.Columns[2].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
@@ -97,7 +97,7 @@ namespace PoS
                     if (mySqlDataReader.HasRows)
                     {
                         mySqlDataReader.Read();
-                        if (dataGridView1.Rows.Count !=0)
+                        if (dataGridView1.Rows.Count != 0)
                         {
                             for (int i = 0; i < dataGridView1.Rows.Count; i++)
                             {
@@ -132,7 +132,7 @@ namespace PoS
 
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString());
                 }
@@ -140,16 +140,24 @@ namespace PoS
             if ((e.KeyChar == 'P' || e.KeyChar == 'p') && !String.IsNullOrEmpty(textBox1.Text))
             {
                 e.Handled = true;
-                //MessageBox.Show($"¿Va a pagar? {textBox1.Text} {total} {Environment.NewLine} " +
-                //    $"{Convert.ToDouble(textBox1.Text) - total}");
-
-                label2.Text = $"pago: " + Convert.ToDouble(textBox1.Text);
-                label5.Text = $"Cambio: {Math.Round(Convert.ToDouble(textBox1.Text) - total, 2)}";
-                dataGridView1.Rows.Clear();
-                textBox1.Clear();
-                textBox1.Focus();
-                label2.Visible = true;
-                label5.Visible = true;
+                if (Convert.ToDouble(textBox1.Text) < total)
+                {
+                    MessageBox.Show("Monto insuficiente");
+                    textBox1.Clear();
+                    textBox1.Focus();
+                    label2.Visible = true;
+                    label5.Visible = true;
+                }
+                else
+                {
+                    label2.Text = $"Pagó con: " + Convert.ToDouble(textBox1.Text);
+                    label5.Text = $"Cambio: {Math.Round(Convert.ToDouble(textBox1.Text) - total, 2)}";
+                    dataGridView1.Rows.Clear();
+                    textBox1.Clear();
+                    textBox1.Focus();
+                    label2.Visible = true;
+                    label5.Visible = true;
+                }
             }
             // Abrir nuevo winform vacio
             if (e.KeyChar == 'N' || e.KeyChar == 'n')
@@ -170,9 +178,9 @@ namespace PoS
             total = 0;
             for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
-                total += Double.Parse(dataGridView1[3,i].Value.ToString());
+                total += Double.Parse(dataGridView1[3, i].Value.ToString());
             }
-            label4.Text = "Total: " + String.Format("{0:0.00}",total);
+            label4.Text = "Total: " + String.Format("{0:0.00}", total);
 
         }
 
