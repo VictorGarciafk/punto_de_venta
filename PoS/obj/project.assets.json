@@ -839,19 +839,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\angel\\.nuget\\packages\\": {}
+    "C:\\Users\\Vicxstroll20ka\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\angel\\Desktop\\AngelGlz\\2021-2\\API 2\\Pos\\punto_de_venta\\PoS\\PoS.csproj",
+      "projectUniqueName": "C:\\Users\\Vicxstroll20ka\\Documents\\punto_de_venta\\PoS\\PoS.csproj",
       "projectName": "PoS",
-      "projectPath": "C:\\Users\\angel\\Desktop\\AngelGlz\\2021-2\\API 2\\Pos\\punto_de_venta\\PoS\\PoS.csproj",
-      "packagesPath": "C:\\Users\\angel\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\angel\\Desktop\\AngelGlz\\2021-2\\API 2\\Pos\\punto_de_venta\\PoS\\obj\\",
+      "projectPath": "C:\\Users\\Vicxstroll20ka\\Documents\\punto_de_venta\\PoS\\PoS.csproj",
+      "packagesPath": "C:\\Users\\Vicxstroll20ka\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Vicxstroll20ka\\Documents\\punto_de_venta\\PoS\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\angel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Vicxstroll20ka\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -900,7 +900,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
       }
     }
   }

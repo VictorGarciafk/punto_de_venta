@@ -18,17 +18,24 @@ namespace PoS
         {
             InitializeComponent();
         }
-
+        double pago = 0;
         private void PuntoDeVenta_Load(object sender, EventArgs e)
         {
             pictureBox1.Width = 250;
             pictureBox1.Height = this.Height / 6;
             pictureBox2.Width = 250;
             pictureBox2.Height = this.Height / 6;
+            Billete50.Width = Billete100.Width = Billete200.Width =Billete500.Width = 150;
+            Billete50.Height = Billete100.Height = Billete200.Height = Billete500.Height = 75;
             pictureBox1.Location = new Point(this.Width - pictureBox1.Width - 10, 10);
             panel1.Location = new Point(40 + (this.Width / 6) * 4, (this.Height / 6) + 20);
             panel1.Height = (this.Height / 6) * 4;
             panel1.Width = (this.Width / 8) * 2 - 10;
+            Billete50.Location = new Point(panel1.Location.X, this.Height - textBox1.Location.Y);
+            Billete100.Location = new Point(panel1.Location.X + Billete50.Width, this.Height - textBox1.Location.Y);
+            Billete200.Location = new Point(panel1.Location.X + Billete50.Width + Billete100.Width, this.Height - textBox1.Location.Y);
+            Billete500.Location = new Point(panel1.Location.X + Billete50.Width + Billete100.Width + Billete200.Width, this.Height - textBox1.Location.Y);
+
 
             label1.Location = new Point(this.Width / 2 - label1.Width / 2, 0);
             pictureBox2.Location = new Point(10, 10);
@@ -62,6 +69,7 @@ namespace PoS
         {
             label2.Visible = false;
             label5.Visible = false;
+            
             if (e.KeyChar == 98 && dataGridView1.Rows.Count > 0)
             {
                 int i = dataGridView1.CurrentRow.Index;
@@ -87,6 +95,7 @@ namespace PoS
                 String query = "SELECT * FROM productos WHERE producto_codigo =" + textBox1.Text;
                 String datosComparar;
                 Boolean nuevaEntrada = true;
+                
 
                 try
                 {
@@ -140,24 +149,8 @@ namespace PoS
             if ((e.KeyChar == 'P' || e.KeyChar == 'p') && !String.IsNullOrEmpty(textBox1.Text))
             {
                 e.Handled = true;
-                if (Convert.ToDouble(textBox1.Text) < total)
-                {
-                    MessageBox.Show("Monto insuficiente");
-                    textBox1.Clear();
-                    textBox1.Focus();
-                    label2.Visible = true;
-                    label5.Visible = true;
-                }
-                else
-                {
-                    label2.Text = $"Pagó con: " + Convert.ToDouble(textBox1.Text);
-                    label5.Text = $"Cambio: {Math.Round(Convert.ToDouble(textBox1.Text) - total, 2)}";
-                    dataGridView1.Rows.Clear();
-                    textBox1.Clear();
-                    textBox1.Focus();
-                    label2.Visible = true;
-                    label5.Visible = true;
-                }
+                pago = Convert.ToDouble(textBox1.Text);
+                pagar(pago);   
             }
             // Abrir nuevo winform vacio
             if (e.KeyChar == 'N' || e.KeyChar == 'n')
@@ -183,10 +176,60 @@ namespace PoS
             label4.Text = "Total: " + String.Format("{0:0.00}", total);
 
         }
+        private void pagar(Double pago)
+        {
+            
+            if (pago < total)
+            {
+                MessageBox.Show("Monto insuficiente");
+                textBox1.Clear();
+                textBox1.Focus();
+                label2.Visible = true;
+                label5.Visible = true;
+            }
+            else
+            {
+                label2.Text = $"Pagó con: " + pago;
+                label5.Text = $"Cambio: {Math.Round(pago - total, 2)}";
+                dataGridView1.Rows.Clear();
+                textBox1.Clear();
+                textBox1.Focus();
+                label2.Visible = true;
+                label5.Visible = true;
+            }
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Billete100_Click(object sender, EventArgs e)
+        {
+            pago = 100;
+            pagar(pago);
+            pago = 0;
+        }
+
+        private void Billete50_Click(object sender, EventArgs e)
+        {
+            pago = 50;
+            pagar(pago);
+            pago = 0;
+        }
+
+        private void Billete200_Click(object sender, EventArgs e)
+        {
+            pago = 200;
+            pagar(pago);
+            pago = 0;
+        }
+
+        private void Billete500_Click(object sender, EventArgs e)
+        {
+            pago = 500;
+            pagar(pago);
+            pago = 0;
         }
     }
 }
