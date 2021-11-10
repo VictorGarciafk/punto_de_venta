@@ -32,8 +32,8 @@ namespace PoS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(pantallaInicial));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.User = new System.Windows.Forms.TextBox();
+            this.Contraseña = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,20 +61,20 @@ namespace PoS
             this.label2.TabIndex = 1;
             this.label2.Text = "Password";
             // 
-            // textBox1
+            // User
             // 
-            this.textBox1.Location = new System.Drawing.Point(168, 212);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(168, 23);
-            this.textBox1.TabIndex = 2;
+            this.User.Location = new System.Drawing.Point(168, 212);
+            this.User.Name = "User";
+            this.User.Size = new System.Drawing.Size(168, 23);
+            this.User.TabIndex = 2;
             // 
-            // textBox2
+            // Contraseña
             // 
-            this.textBox2.Location = new System.Drawing.Point(169, 277);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '•';
-            this.textBox2.Size = new System.Drawing.Size(167, 23);
-            this.textBox2.TabIndex = 3;
+            this.Contraseña.Location = new System.Drawing.Point(169, 277);
+            this.Contraseña.Name = "Contraseña";
+            this.Contraseña.PasswordChar = '•';
+            this.Contraseña.Size = new System.Drawing.Size(167, 23);
+            this.Contraseña.TabIndex = 3;
             // 
             // button1
             // 
@@ -112,9 +112,9 @@ namespace PoS
             this.label4.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label4.Location = new System.Drawing.Point(52, 123);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(304, 65);
+            this.label4.Size = new System.Drawing.Size(300, 65);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Inicie session\r\n";
+            this.label4.Text = "Iniciar sesion\r\n";
             // 
             // pantallaInicial
             // 
@@ -125,8 +125,8 @@ namespace PoS
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Contraseña);
+            this.Controls.Add(this.User);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -144,8 +144,8 @@ namespace PoS
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox User;
+        private System.Windows.Forms.TextBox Contraseña;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label3;
