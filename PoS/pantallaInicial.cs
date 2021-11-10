@@ -22,6 +22,10 @@ namespace PoS
             
         }
 
+        String nombre = "";
+        String apellidoP = "";
+        String apellidoM = "";
+
         private void button1_Click(object sender, EventArgs e)
         {
             String query = "SELECT * FROM usuarios WHERE nombre = '"+ User.Text + "' and pass = '" + Contraseña.Text + "'";
@@ -30,19 +34,25 @@ namespace PoS
             mySqlConnection.Open();
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
+            PuntoDeVenta PV = new PuntoDeVenta();
 
             if (mySqlDataReader.Read())
             {
-                MessageBox.Show("Bienvenida");
+                nombre = mySqlDataReader.GetString(1);
+                apellidoP = mySqlDataReader.GetString(2);
+                apellidoM = mySqlDataReader.GetString(3);
+                PV.trabajador_actual(nombre, apellidoP, apellidoM);
+                MessageBox.Show("Bienvenid@ " + nombre);
                 this.Hide();
-                new PuntoDeVenta().ShowDialog();
+                PV.ShowDialog();
+
                 this.Show();
                 //Application.Run(new pantallaInicial());
                 this.Close();
             }
             else
             {
-                MessageBox.Show("and you fail");
+                MessageBox.Show("Datos incorrectos, intentalo de nuevo");
             }
             mySqlConnection.Close();
             

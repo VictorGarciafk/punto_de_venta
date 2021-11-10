@@ -21,6 +21,7 @@ namespace PoS
         double pago = 0;
         private void PuntoDeVenta_Load(object sender, EventArgs e)
         {
+            pantallaInicial pi = new pantallaInicial();
             pictureBox1.Width = 250;
             pictureBox1.Height = this.Height / 6;
             pictureBox2.Width = 250;
@@ -35,7 +36,7 @@ namespace PoS
             Billete100.Location = new Point(panel1.Location.X + Billete50.Width, this.Height - textBox1.Location.Y);
             Billete200.Location = new Point(panel1.Location.X + Billete50.Width + Billete100.Width, this.Height - textBox1.Location.Y);
             Billete500.Location = new Point(panel1.Location.X + Billete50.Width + Billete100.Width + Billete200.Width, this.Height - textBox1.Location.Y);
-
+            logOut.Location = new Point(this.Width - logOut.Width - 10, this.Height - logOut.Height - 10);
 
             label1.Location = new Point(this.Width / 2 - label1.Width / 2, 0);
             pictureBox2.Location = new Point(10, 10);
@@ -58,6 +59,7 @@ namespace PoS
             dataGridView1.Columns[3].CellTemplate.Style.Alignment = DataGridViewContentAlignment.MiddleRight;
             label2.Visible = false;
             label5.Visible = false;
+            label6.Location = new Point(0, this.Height - label6.Height);
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -67,6 +69,8 @@ namespace PoS
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            label2.Text = "";
+            label5.Text = "";
             label2.Visible = false;
             label5.Visible = false;
             
@@ -199,6 +203,12 @@ namespace PoS
             }
         }
 
+        public void trabajador_actual(string nombre, string apellidoP, string apellidoM)
+        {
+            label6.Text = nombre + " " + apellidoP + " " + apellidoM;
+        }
+
+
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -230,6 +240,15 @@ namespace PoS
             pago = 500;
             pagar(pago);
             pago = 0;
+        }
+
+        private void logOut_Click(object sender, EventArgs e)
+        {
+            
+            new pantallaInicial().ShowDialog();
+            this.Hide();
+            this.Show();
+            this.Close();
         }
     }
 }
