@@ -288,3 +288,6 @@ C:\Users\angel\Desktop\AngelGlz\2021-2\API 2\Pos\punto_de_venta\PoS\obj\Debug\ne
 C:\Users\angel\Desktop\AngelGlz\2021-2\API 2\Pos\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.pdb
 C:\Users\angel\Desktop\AngelGlz\2021-2\API 2\Pos\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.genruntimeconfig.cache
 C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.pantallaInicial.resources
+C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.sistema_de_reportes.resources
+C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.ProductoVendido.resources
+C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.ventasUsuario.resources

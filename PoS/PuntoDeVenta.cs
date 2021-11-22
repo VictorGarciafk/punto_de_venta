@@ -96,7 +96,7 @@ namespace PoS
 
             if (e.KeyChar == 13)
             {
-                String query = "SELECT * FROM productos WHERE producto_codigo =" + textBox1.Text;
+                String query = "SELECT * FROM productos WHERE id_producto =" + textBox1.Text;
                 String datosComparar;
                 Boolean nuevaEntrada = true;
                 
@@ -128,12 +128,12 @@ namespace PoS
 
                             if (nuevaEntrada == true)
                             {
-                                dataGridView1.Rows.Add(1, mySqlDataReader.GetString(1), String.Format("{0:0.00}", mySqlDataReader.GetDouble(3)), String.Format("{0:0.00}", mySqlDataReader.GetDouble(3)));
+                                dataGridView1.Rows.Add(1, mySqlDataReader.GetString(1), String.Format("{0:0.00}", mySqlDataReader.GetDouble(2)), String.Format("{0:0.00}", mySqlDataReader.GetDouble(2)));
                             }
                         }
                         else
                         {
-                            dataGridView1.Rows.Add(1, mySqlDataReader.GetString(1), String.Format("{0:0.00}", mySqlDataReader.GetDouble(3)), String.Format("{0:0.00}", mySqlDataReader.GetDouble(3)));
+                            dataGridView1.Rows.Add(1, mySqlDataReader.GetString(1), String.Format("{0:0.00}", mySqlDataReader.GetDouble(2)), String.Format("{0:0.00}", mySqlDataReader.GetDouble(2)));
                         }
 
                         CalcularTotal();

@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace PoS
 {
+
+    //Operadores/ cajeros tipo 1
+    //Administrador tipo 2
+
     public partial class pantallaInicial : Form
     {
         public pantallaInicial()
@@ -35,6 +39,7 @@ namespace PoS
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader mySqlDataReader = mySqlCommand.ExecuteReader();
             PuntoDeVenta PV = new PuntoDeVenta();
+            sistema_de_reportes SR = new sistema_de_reportes();
 
             if (mySqlDataReader.Read())
             {
@@ -43,12 +48,25 @@ namespace PoS
                 apellidoM = mySqlDataReader.GetString(3);
                 PV.trabajador_actual(nombre, apellidoP, apellidoM);
                 MessageBox.Show("Bienvenid@ " + nombre);
-                this.Hide();
-                PV.ShowDialog();
 
-                this.Show();
-                //Application.Run(new pantallaInicial());
-                this.Close();
+                if (mySqlDataReader["permisoUsuario"].ToString().Equals("1"))
+                {
+                    this.Hide();
+                    PV.ShowDialog();
+
+                    this.Show();
+                    //Application.Run(new pantallaInicial());
+                    this.Close();
+                }
+                else if (mySqlDataReader["permisoUsuario"].ToString().Equals("2"))
+                {
+                    this.Hide();
+                    SR.ShowDialog();
+
+                    this.Show();
+                    //Application.Run(new pantallaInicial());
+                    this.Close();
+                }
             }
             else
             {

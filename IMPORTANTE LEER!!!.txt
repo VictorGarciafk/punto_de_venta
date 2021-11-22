@@ -1,0 +1,1 @@
+en la carpeta bdd esta la base de datos que utiliza el programa, ya que tiene varios cambios que no servira con la anterior base de datos
