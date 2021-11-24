@@ -244,9 +244,9 @@ namespace PoS
 
         private void logOut_Click(object sender, EventArgs e)
         {
-            
-            new pantallaInicial().ShowDialog();
             this.Hide();
+            new pantallaInicial().ShowDialog();
+            
             this.Show();
             this.Close();
         }

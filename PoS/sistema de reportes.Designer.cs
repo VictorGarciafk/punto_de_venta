@@ -85,6 +85,7 @@ namespace PoS
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
             this.salirToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.salirToolStripMenuItem.Text = "Salir";
+            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -131,6 +132,7 @@ namespace PoS
             this.ventasPorDiaToolStripMenuItem.Name = "ventasPorDiaToolStripMenuItem";
             this.ventasPorDiaToolStripMenuItem.Size = new System.Drawing.Size(223, 22);
             this.ventasPorDiaToolStripMenuItem.Text = "ventas por dia";
+            this.ventasPorDiaToolStripMenuItem.Click += new System.EventHandler(this.ventasPorDiaToolStripMenuItem_Click);
             // 
             // cortesToolStripMenuItem
             // 
@@ -170,7 +172,9 @@ namespace PoS
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "sistema_de_reportes";
             this.Text = "sistema_de_reportes";
             this.menuStrip1.ResumeLayout(false);

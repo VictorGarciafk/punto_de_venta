@@ -58,7 +58,8 @@ namespace PoS
                     //Application.Run(new pantallaInicial());
                     this.Close();
                 }
-                else if (mySqlDataReader["permisoUsuario"].ToString().Equals("2"))
+                
+                if (mySqlDataReader["permisoUsuario"].ToString().Equals("2"))
                 {
                     this.Hide();
                     SR.ShowDialog();

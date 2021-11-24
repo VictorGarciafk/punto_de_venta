@@ -291,3 +291,4 @@ C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\Po
 C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.sistema_de_reportes.resources
 C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.ProductoVendido.resources
 C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.ventasUsuario.resources
+C:\Users\Vicxstroll20ka\Documents\punto_de_venta\PoS\obj\Debug\net5.0-windows\PoS.ventaDia.resources

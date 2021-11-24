@@ -13,22 +13,29 @@ namespace PoS
 {
     public partial class ProductoVendido : Form
     {
-        public ProductoVendido(String query2)
+        public ProductoVendido(String query2, String titulo)
         {
             InitializeComponent();
-            pVendido(query2);
+            label2.Location = new Point(this.Width / 3, 0);
+            panel1.Location = new Point(0, label2.Location.Y + label2.Height + 20);
+            panel1.Width = this.Width;
+            panel1.Height = this.Height - label2.Height - 20;
+            dataGridView1.Columns[0].Width = 260;
+            dataGridView1.Columns[1].Width = 260;
+            dataGridView1.Columns[2].Width = 260;
+            pVendido(query2, titulo);
         }
 
-        public void pVendido(String query)
+        public void pVendido(String query, String titulo)
         {
             MySqlConnection mySqlConnection = new MySqlConnection("server=127.0.0.1; user=root; database=verificador_precios; SSL mode=none");
             mySqlConnection.Open();
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             MySqlDataReader reader = mySqlCommand.ExecuteReader();
-            label1.Text = "";
+            label2.Text = titulo;
             while (reader.Read())
             {
-                label1.Text += (reader["id_producto"].ToString() + "-" + reader["nombre_producto"].ToString() + "-" + reader["cantidad"].ToString());
+                dataGridView1.Rows.Add(reader.GetString(0), reader.GetString(1), reader.GetString(2));
             }
         }
 
